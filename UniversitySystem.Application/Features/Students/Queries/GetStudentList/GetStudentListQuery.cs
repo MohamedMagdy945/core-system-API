@@ -3,7 +3,7 @@ using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using UniversitySystem.Application.Bases;
-using UniversitySystem.Application.Features.Students.Queries.Models;
+using UniversitySystem.Application.Features.Students.Models;
 using UniversitySystem.Application.Interfaces;
 
 namespace UniversitySystem.Application.Features.Students.Queries.GetStudentList

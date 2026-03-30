@@ -3,7 +3,8 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using UniversitySystem.Application.Behaviors;
-using UniversitySystem.Application.Features.Students.Queries.Models;
+using UniversitySystem.Application.Features.Students.Models;
+
 namespace UniversitySystem.Application
 {
     public static class DependencyInjection

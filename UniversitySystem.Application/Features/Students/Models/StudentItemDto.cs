@@ -1,4 +1,4 @@
-﻿namespace UniversitySystem.Application.Features.Students.Queries.Models
+﻿namespace UniversitySystem.Application.Features.Students.Models
 {
     public class StudentItemDto
     {

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using UniversitySystem.Application.Features.Students.Queries.Models;
+using UniversitySystem.Application.Features.Students.Models;
 using UniversitySystem.Domain.Entities;
 
 namespace UniversitySystem.Application.Features.Students.Queries
