@@ -1,4 +1,6 @@
-﻿namespace UniversitySystem.Application.Common.Extensions
+﻿using System.Linq.Expressions;
+
+namespace UniversitySystem.Application.Common.Extensions
 {
     public static class QueryableExtensions
     {
@@ -13,6 +15,17 @@
             pageSize = pageSize > 20 ? 20 : pageSize;
 
             return source.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+        }
+        public static IQueryable<T> ApplySorting<T, TKey>(
+        this IQueryable<T> query,
+        Expression<Func<T, TKey>>? keySelector, // خليناه يقبل null
+        bool desc = false)
+        {
+            if (keySelector == null) return query; // لو مفيش ترتيب، كمل عادي
+
+            return desc
+                ? query.OrderByDescending(keySelector)
+                : query.OrderBy(keySelector);
         }
     }
 }
