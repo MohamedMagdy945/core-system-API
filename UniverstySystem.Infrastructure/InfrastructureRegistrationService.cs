@@ -18,6 +18,8 @@ namespace UniverstySystem.Infrastructure
 
             services.AddScoped<IIdentityService, IdentityService>();
 
+            services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
+
             return services;
         }
     }

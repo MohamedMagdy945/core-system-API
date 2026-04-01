@@ -1,10 +1,11 @@
-
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using UniversitySystem.API.DependencyInjection;
 using UniversitySystem.Application;
 using UniversitySystem.Domain.Entities;
 using UniverstySystem.Infrastructure;
 using UniverstySystem.Infrastructure.Middlewares;
+using UniverstySystem.Infrastructure.Models;
 using UniverstySystem.Infrastructure.Persistence;
 
 namespace UniversitySystem.API
@@ -31,14 +32,6 @@ namespace UniversitySystem.API
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
 
-            //builder.Services.ConfigureApplicationCookie(options =>
-            //{
-            //    options.Events.OnRedirectToLogin = context =>
-            //    {
-            //        context.Response.StatusCode = 401;
-            //        return Task.CompletedTask;
-            //    };
-            //});
 
             builder.Services.Configure<IdentityOptions>(options =>
             {
@@ -47,7 +40,18 @@ namespace UniversitySystem.API
                 options.Password.RequireNonAlphanumeric = false;
             });
 
+            var jwtSettings = new JwtSettings();
+
+            builder.Configuration.GetSection("JwtSettings").Bind(jwtSettings);
+
+            builder.Services.AddSingleton(jwtSettings);
+
+            builder.Services.AddJwtAuthentication(jwtSettings);
+
             builder.Services.AddApplicationService().AddInfrastructureService(builder.Configuration);
+
+
+
 
             var app = builder.Build();
 
@@ -61,6 +65,9 @@ namespace UniversitySystem.API
             app.UseMiddleware<ErrorHandlerMiddleware>();
 
             app.UseHttpsRedirection();
+
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

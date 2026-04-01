@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <Folder Include="Features\Department\Commands\" />
-    <Folder Include="Identity\Queries\" />
+    <Folder Include="Identity\Register\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using UniversitySystem.Application.Features.Students.Commands.CreateStudent;
 using UniversitySystem.Application.Features.Students.Commands.DeleteStudent;
 using UniversitySystem.Application.Features.Students.Commands.UpdateStudent;
@@ -7,6 +8,7 @@ using UniversitySystem.Application.Features.Students.Queries.GetStudentListPagin
 
 namespace UniversitySystem.API.Controllers
 {
+    [Authorize]
     public class StudentsController : AppControllerBase
     {
         [HttpGet]

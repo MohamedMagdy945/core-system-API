@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using UniversitySystem.Application.Interfaces;
 using UniversitySystem.Domain.Entities;
+using UniverstySystem.Infrastructure.Models;
 
 namespace UniverstySystem.Infrastructure.Service
 {
@@ -11,9 +12,8 @@ namespace UniverstySystem.Infrastructure.Service
         private readonly UserManager<AppUser> _userManager;
         private readonly IAuthorizationService _authorizationService;
         private readonly IUserClaimsPrincipalFactory<AppUser> _claimsFactory;
-
         public IdentityService(
-            UserManager<AppUser> userManager,
+            UserManager<AppUser> userManager, JwtSettings jwtSettings,
             IAuthorizationService authorizationService,
             IUserClaimsPrincipalFactory<AppUser> claimsFactory)
         {
