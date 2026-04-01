@@ -1,4 +1,4 @@
-﻿namespace UniversitySystem.Application.ApplicationUser.Models
+﻿namespace UniversitySystem.Application.Identity.Register.Models
 {
     public class CreateUserResponse
     {

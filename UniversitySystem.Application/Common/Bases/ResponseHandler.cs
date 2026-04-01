@@ -30,17 +30,17 @@ namespace UniversitySystem.Application.Common.Bases
             };
         }
 
-        public static Response<T> NotFound<T>(string message = "Resource not found", List<string>? errors = null)
+        public static Response<T> NotFound<T>(string message = "Resource not found",
+            Dictionary<string, List<string>>? errors = null)
         {
             return new Response<T>
             {
                 IsSuccess = false,
                 Message = message,
-                Errors = new Dictionary<string, List<string>>(),
+                Errors = errors ?? new Dictionary<string, List<string>>(),
                 StatusCode = StatusCodes.Status404NotFound
             };
         }
-
         public static Response<T> Unauthorized<T>(string message = "Unauthorized")
         {
             return new Response<T>

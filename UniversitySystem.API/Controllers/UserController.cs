@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using UniversitySystem.Identity.User.Commands.CreateUser;
+using UniversitySystem.Application.Identity.Register.Commands.CreateUser;
 
 namespace UniversitySystem.API.Controllers
 {

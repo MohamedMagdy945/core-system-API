@@ -74,5 +74,23 @@ namespace UniverstySystem.Infrastructure.Service
             return result.Succeeded;
         }
 
+        public async Task<AppUser?> LoginAsync(string userName, string password)
+        {
+            var user = await _userManager.FindByEmailAsync(userName);
+
+            if (user == null)
+                user = await _userManager.FindByNameAsync(userName);
+
+            if (user == null)
+                return null;
+
+            var isValid = await _userManager.CheckPasswordAsync(user, password);
+
+            return isValid ? user : null;
+        }
+        public async Task<IEnumerable<string>> GetRolesAsync(AppUser appUser)
+        {
+            return await _userManager.GetRolesAsync(appUser);
+        }
     }
 }

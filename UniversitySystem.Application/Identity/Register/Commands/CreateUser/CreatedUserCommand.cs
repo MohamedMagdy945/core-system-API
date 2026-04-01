@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using UniversitySystem.Application.ApplicationUser.Models;
 using UniversitySystem.Application.Common.Bases;
+using UniversitySystem.Application.Identity.Register.Models;
 using UniversitySystem.Application.Interfaces;
 
-namespace UniversitySystem.Identity.User.Commands.CreateUser
+namespace UniversitySystem.Application.Identity.Register.Commands.CreateUser
 {
     public record CreateUserCommand(string UserName, string Email, string Password, string ConfirmPassword) : IRequest<Response<CreateUserResponse>>;
 

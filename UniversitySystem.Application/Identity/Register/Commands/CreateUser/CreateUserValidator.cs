@@ -1,7 +1,6 @@
 ﻿using FluentValidation;
-using UniversitySystem.Identity.User.Commands.CreateUser;
 
-namespace UniversitySystem.Application.Identity.Commands.CreateUser
+namespace UniversitySystem.Application.Identity.Register.Commands.CreateUser
 {
     public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
     {

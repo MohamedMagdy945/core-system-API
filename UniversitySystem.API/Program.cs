@@ -43,7 +43,7 @@ namespace UniversitySystem.API
             builder.Services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = true;
-                options.Password.RequiredLength = 6;
+                options.Password.RequiredLength = 9;
                 options.Password.RequireNonAlphanumeric = false;
             });
 
