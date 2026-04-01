@@ -5,7 +5,7 @@ namespace UniversitySystem.Application.Interfaces
 {
     public interface IAppDbContext
     {
-        DbSet<ApplicationUser> Users { get; }
+        DbSet<AppUser> Users { get; }
         DbSet<Student> Students { get; }
         DbSet<Department> Departments { get; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);

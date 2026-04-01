@@ -1,5 +1,5 @@
 ﻿
-using UniversitySystem.Application.Common.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace UniversitySystem.Application.Interfaces
 {
@@ -7,7 +7,7 @@ namespace UniversitySystem.Application.Interfaces
     {
         Task<string?> GetUserNameAsync(int userId);
 
-        Task<AuthResult> CreateUserAsync(string userName, string password);
+        Task<(IdentityResult Result, string? UserId)> CreateUserAsync(string userName, string email, string password);
 
         Task<bool> DeleteUserAsync(int userId);
 

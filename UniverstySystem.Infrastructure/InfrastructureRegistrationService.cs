@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using UniversitySystem.Application.Interfaces;
 using UniverstySystem.Infrastructure.Persistence;
+using UniverstySystem.Infrastructure.Service;
 
 namespace UniverstySystem.Infrastructure
 {
@@ -14,6 +15,8 @@ namespace UniverstySystem.Infrastructure
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IAppDbContext, AppDbContext>();
+
+            services.AddScoped<IIdentityService, IdentityService>();
 
             return services;
         }

@@ -6,12 +6,12 @@ using UniversitySystem.Domain.Entities;
 
 namespace UniverstySystem.Infrastructure.Persistence
 {
-    public class AppDbContext : IdentityDbContext<ApplicationUser, IdentityRole<int>, int>, IAppDbContext
+    public class AppDbContext : IdentityDbContext<AppUser, IdentityRole<int>, int>, IAppDbContext
     {
         public DbSet<Student> Students { get; set; }
         public DbSet<Department> Departments { get; set; }
 
-        public DbSet<ApplicationUser> Users { get; set; }
+        public DbSet<AppUser> Users { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {

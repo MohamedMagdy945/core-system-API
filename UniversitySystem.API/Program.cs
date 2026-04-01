@@ -27,9 +27,25 @@ namespace UniversitySystem.API
             });
 
             builder.Services
-            .AddIdentity<ApplicationUser, IdentityRole<int>>()
+            .AddIdentity<AppUser, IdentityRole<int>>()
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
+
+            //builder.Services.ConfigureApplicationCookie(options =>
+            //{
+            //    options.Events.OnRedirectToLogin = context =>
+            //    {
+            //        context.Response.StatusCode = 401;
+            //        return Task.CompletedTask;
+            //    };
+            //});
+
+            builder.Services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequireNonAlphanumeric = false;
+            });
 
             builder.Services.AddApplicationService().AddInfrastructureService(builder.Configuration);
 

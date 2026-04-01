@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
-using UniversitySystem.Application.Common.Models;
 using UniversitySystem.Application.Interfaces;
 using UniversitySystem.Domain.Entities;
 
@@ -9,14 +8,14 @@ namespace UniverstySystem.Infrastructure.Service
 {
     public class IdentityService : IIdentityService
     {
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<AppUser> _userManager;
         private readonly IAuthorizationService _authorizationService;
-        private readonly IUserClaimsPrincipalFactory<ApplicationUser> _claimsFactory;
+        private readonly IUserClaimsPrincipalFactory<AppUser> _claimsFactory;
 
         public IdentityService(
-            UserManager<ApplicationUser> userManager,
+            UserManager<AppUser> userManager,
             IAuthorizationService authorizationService,
-            IUserClaimsPrincipalFactory<ApplicationUser> claimsFactory)
+            IUserClaimsPrincipalFactory<AppUser> claimsFactory)
         {
             _userManager = userManager;
             _authorizationService = authorizationService;
@@ -29,22 +28,17 @@ namespace UniverstySystem.Infrastructure.Service
             return user?.UserName;
         }
 
-        public async Task<AuthResult> CreateUserAsync(string userName, string password)
+        public async Task<(IdentityResult Result, string? UserId)> CreateUserAsync(string userName, string email, string password)
         {
-            var user = new ApplicationUser
+            var user = new AppUser
             {
                 UserName = userName,
-                Email = userName
+                Email = email,
             };
 
             var result = await _userManager.CreateAsync(user, password);
 
-            return new AuthResult
-            {
-                Succeeded = result.Succeeded,
-                UserId = result.Succeeded ? user.Id.ToString() : null,
-                Errors = result.Errors.Select(e => e.Description).ToList()
-            };
+            return (result, result.Succeeded ? user.Id.ToString() : null);
         }
         public async Task<bool> DeleteUserAsync(int userId)
         {

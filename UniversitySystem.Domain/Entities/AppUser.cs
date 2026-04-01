@@ -2,8 +2,9 @@
 
 namespace UniversitySystem.Domain.Entities
 {
-    public class ApplicationUser : IdentityUser<int>
+    public class AppUser : IdentityUser<int>
     {
         public string? FullName { get; set; }
+        public string? NationalId { get; set; }
     }
 }

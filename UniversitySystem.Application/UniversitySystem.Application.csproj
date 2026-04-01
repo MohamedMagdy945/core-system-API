@@ -12,11 +12,12 @@
 
   <ItemGroup>
     <Folder Include="Features\Department\Commands\" />
+    <Folder Include="Identity\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="ApplicationRegisrationService.cs" />
-    <None Include="Features\Students\Commands\DeleteStudent\DeleteStudentHandler.cs" />
+    <None Include="Features\Students\Commands\DeleteStudent\DeleteStudentCommand.cs" />
   </ItemGroup>
 
   <ItemGroup>
