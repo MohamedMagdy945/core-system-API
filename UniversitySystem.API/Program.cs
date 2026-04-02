@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using UniversitySystem.API.DependencyInjection;
 using UniversitySystem.Application;
-using UniversitySystem.Domain.Entities;
+using UniversitySystem.Domain.Identity;
 using UniverstySystem.Infrastructure;
 using UniverstySystem.Infrastructure.Middlewares;
 using UniverstySystem.Infrastructure.Models;

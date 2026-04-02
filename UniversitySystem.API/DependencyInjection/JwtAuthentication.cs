@@ -29,7 +29,7 @@ namespace UniversitySystem.API.DependencyInjection
                         ValidIssuer = jwtSettings.Issuer,
                         ValidAudience = jwtSettings.Audience,
                         IssuerSigningKey = new SymmetricSecurityKey(
-                            Encoding.UTF8.GetBytes(jwtSettings.SecretKey))
+                            Encoding.UTF8.GetBytes(jwtSettings.AccessTokenSecret))
                     };
                 });
 

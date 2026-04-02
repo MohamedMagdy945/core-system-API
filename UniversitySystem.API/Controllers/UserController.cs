@@ -18,6 +18,7 @@ namespace UniversitySystem.API.Controllers
         [HttpPost("Login")]
         public async Task<IActionResult> Login(LoginCommand command)
         {
+
             var response = await _mediator.Send(command);
             return NewResult(response);
         }

@@ -3,7 +3,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using UniversitySystem.Application.Interfaces;
 using UniverstySystem.Infrastructure.Persistence;
+using UniverstySystem.Infrastructure.Repositories;
 using UniverstySystem.Infrastructure.Service;
+using UniverstySystem.Infrastructure.Services;
 
 namespace UniverstySystem.Infrastructure
 {
@@ -18,7 +20,11 @@ namespace UniverstySystem.Infrastructure
 
             services.AddScoped<IIdentityService, IdentityService>();
 
-            services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
+            services.AddSingleton<ITokenGenerator, TokenGenerator>();
+
+            services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+
+            services.AddScoped<IAuthService, AuthService>();
 
             return services;
         }

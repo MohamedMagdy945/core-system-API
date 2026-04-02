@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using UniversitySystem.Application.Interfaces;
 using UniversitySystem.Domain.Entities;
+using UniversitySystem.Domain.Identity;
 
 namespace UniverstySystem.Infrastructure.Persistence
 {
@@ -10,6 +11,7 @@ namespace UniverstySystem.Infrastructure.Persistence
     {
         public DbSet<Student> Students { get; set; }
         public DbSet<Department> Departments { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
 
         public DbSet<AppUser> Users { get; set; }
 

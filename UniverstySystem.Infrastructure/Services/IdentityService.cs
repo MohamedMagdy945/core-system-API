@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using UniversitySystem.Application.Interfaces;
-using UniversitySystem.Domain.Entities;
+using UniversitySystem.Domain.Identity;
 using UniverstySystem.Infrastructure.Models;
 
 namespace UniverstySystem.Infrastructure.Service
@@ -21,14 +21,17 @@ namespace UniverstySystem.Infrastructure.Service
             _authorizationService = authorizationService;
             _claimsFactory = claimsFactory;
         }
-
+        public async Task<AppUser?> GetUserByIdAsync(int userId)
+        {
+            return await _userManager.FindByIdAsync(userId.ToString());
+        }
         public async Task<string?> GetUserNameAsync(int userId)
         {
             var user = await _userManager.FindByIdAsync(userId.ToString());
             return user?.UserName;
         }
 
-        public async Task<(IdentityResult Result, string? UserId)> CreateUserAsync(string userName, string email, string password)
+        public async Task<(IdentityResult Result, int? UserId)> CreateUserAsync(string userName, string email, string password)
         {
             var user = new AppUser
             {
@@ -38,7 +41,7 @@ namespace UniverstySystem.Infrastructure.Service
 
             var result = await _userManager.CreateAsync(user, password);
 
-            return (result, result.Succeeded ? user.Id.ToString() : null);
+            return (result, result.Succeeded ? user.Id : null);
         }
         public async Task<bool> DeleteUserAsync(int userId)
         {

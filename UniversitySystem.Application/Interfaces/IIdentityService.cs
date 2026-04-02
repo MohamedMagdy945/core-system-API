@@ -1,13 +1,14 @@
 ﻿
 using Microsoft.AspNetCore.Identity;
-using UniversitySystem.Domain.Entities;
+using UniversitySystem.Domain.Identity;
 
 namespace UniversitySystem.Application.Interfaces
 {
     public interface IIdentityService
     {
+        Task<AppUser?> GetUserByIdAsync(int userId);
         Task<string?> GetUserNameAsync(int userId);
-        Task<(IdentityResult Result, string? UserId)> CreateUserAsync(string userName, string email, string password);
+        Task<(IdentityResult Result, int? UserId)> CreateUserAsync(string userName, string email, string password);
 
         Task<AppUser?> LoginAsync(string userName, string password);
 

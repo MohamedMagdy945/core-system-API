@@ -61,6 +61,11 @@
                     message = ex.Message;
                     break;
 
+                case BadRequestAppException:
+                    statusCode = HttpStatusCode.BadRequest;
+                    message = ex.Message;
+                    break;
+
                 case UnauthorizedAccessException:
                     statusCode = HttpStatusCode.Unauthorized;
                     message = "Unauthorized access";
