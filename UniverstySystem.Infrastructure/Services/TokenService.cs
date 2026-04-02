@@ -1,24 +1,39 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using UniversitySystem.Application.Common.Models;
 using UniversitySystem.Application.Interfaces;
 using UniversitySystem.Domain.Identity;
 using UniverstySystem.Infrastructure.Models;
 
 namespace UniverstySystem.Infrastructure.Service
 {
-    public class TokenGenerator : ITokenGenerator
+    public class TokenService : ITokenService
     {
-        private readonly IConfiguration _configuration;
         private readonly JwtSettings _jwtSettings;
 
-        public TokenGenerator(IConfiguration configuration, JwtSettings jwtSettings)
+        public TokenService(JwtSettings jwtSettings)
         {
-            _configuration = configuration;
             _jwtSettings = jwtSettings;
+        }
+
+        public TokenPair GenerateTokenPair(AppUser user, IEnumerable<string> roles, string ip, string device)
+        {
+            var accessToken = GenerateAccessToken(user, roles);
+            var refreshToken = GenerateRefreshToken();
+
+            return new TokenPair
+            {
+                AccessToken = accessToken,
+                RefreshToken = refreshToken,
+                RefreshTokenHash = HashToken(refreshToken),
+                AccessTokenExpiration = DateTime.UtcNow.AddMinutes(_jwtSettings.AccessTokenExpiryMinutes),
+                RefreshTokenExpiration = DateTime.UtcNow.AddDays(_jwtSettings.RefreshTokenExpiryDays),
+                Ip = ip,
+                Device = device
+            };
         }
 
         public string GenerateAccessToken(AppUser user, IEnumerable<string> roles)
@@ -54,13 +69,15 @@ namespace UniverstySystem.Infrastructure.Service
 
             return Convert.ToBase64String(bytes);
         }
-
         public string HashToken(string token)
         {
-            using var sha = SHA256.Create();
-            var bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(token));
-            return Convert.ToBase64String(bytes);
+            var key = Encoding.UTF8.GetBytes("@!#MasterJScetKe1/23Sdkjadshka123Nef789");
 
+            using var hmac = new HMACSHA256(key);
+            var bytes = hmac.ComputeHash(Encoding.UTF8.GetBytes(token));
+
+            return Convert.ToBase64String(bytes);
         }
+
     }
 }

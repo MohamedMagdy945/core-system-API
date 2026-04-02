@@ -20,7 +20,7 @@ namespace UniverstySystem.Infrastructure
 
             services.AddScoped<IIdentityService, IdentityService>();
 
-            services.AddSingleton<ITokenGenerator, TokenGenerator>();
+            services.AddSingleton<ITokenService, TokenService>();
 
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 
