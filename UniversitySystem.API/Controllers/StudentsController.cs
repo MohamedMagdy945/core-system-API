@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using UniversitySystem.Application.Features.Students.Commands.CreateStudent;
+using UniversitySystem.Application.Features.Business.Students.Commands.CreateStudent;
+using UniversitySystem.Application.Features.Business.Students.Commands.UpdateStudent;
+using UniversitySystem.Application.Features.Business.Students.Queries.GetStudentListPaginated;
 using UniversitySystem.Application.Features.Students.Commands.DeleteStudent;
-using UniversitySystem.Application.Features.Students.Commands.UpdateStudent;
 using UniversitySystem.Application.Features.Students.Queries.GetStudentById;
-using UniversitySystem.Application.Features.Students.Queries.GetStudentListPaginated;
+using UniversitySystem.Domain.Entities;
+using UniverstySystem.Infrastructure.Identity.Attribute;
 
 namespace UniversitySystem.API.Controllers
 {
@@ -12,6 +14,7 @@ namespace UniversitySystem.API.Controllers
     public class StudentsController : AppControllerBase
     {
         [HttpGet]
+        [HasPermission(Permissions.Students_View, Permissions.Students_Delete)]
         public async Task<IActionResult> GetStudents([FromQuery] GetStudentListPaginatedQuery request, CancellationToken cancellationToken)
         {
             var students = await _mediator.Send(request, cancellationToken);

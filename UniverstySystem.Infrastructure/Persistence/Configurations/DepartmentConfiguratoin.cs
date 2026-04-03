@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using UniversitySystem.Domain.Entities;
+using UniversitySystem.Domain.Entities.Business;
 
 namespace UniverstySystem.Infrastructure.Persistence.Configurations
 {

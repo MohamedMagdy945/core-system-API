@@ -3,7 +3,7 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using UniversitySystem.Application.Common.Behaviors;
-using UniversitySystem.Application.Features.Students.Models;
+using UniversitySystem.Application.Features.Business.Students.Models;
 
 namespace UniversitySystem.Application
 {

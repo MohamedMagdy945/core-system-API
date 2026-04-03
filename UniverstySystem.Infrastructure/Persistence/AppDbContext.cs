@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using UniversitySystem.Application.Interfaces;
-using UniversitySystem.Domain.Entities;
-using UniversitySystem.Domain.Identity;
+using UniversitySystem.Domain.Entities.Business;
+using UniversitySystem.Domain.Entities.Identity;
 
 namespace UniverstySystem.Infrastructure.Persistence
 {
@@ -12,7 +12,7 @@ namespace UniverstySystem.Infrastructure.Persistence
         public DbSet<Student> Students { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
-
+        //public DbSet<UserPermission> UserPermissions { get; set; }
         public DbSet<AppUser> Users { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)

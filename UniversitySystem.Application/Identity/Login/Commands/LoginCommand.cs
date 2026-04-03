@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using UniversitySystem.Application.Common.Bases;
 using UniversitySystem.Application.Common.Models;
-using UniversitySystem.Application.Interfaces;
+using UniversitySystem.Application.Interfaces.Auth;
 
 namespace UniversitySystem.Application.Identity.Login.Commands
 {

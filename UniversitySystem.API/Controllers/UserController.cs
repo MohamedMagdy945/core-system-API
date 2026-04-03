@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using UniversitySystem.Application.Identity.Login.Commands;
-using UniversitySystem.Application.Identity.RefreshToeken.Commands;
 using UniversitySystem.Application.Identity.Register.Commands.CreateUser;
 
 namespace UniversitySystem.API.Controllers
@@ -17,6 +16,7 @@ namespace UniversitySystem.API.Controllers
         }
 
         [HttpPost("Login")]
+
         public async Task<IActionResult> Login(LoginCommand command)
         {
 
@@ -24,12 +24,13 @@ namespace UniversitySystem.API.Controllers
             return NewResult(response);
         }
 
-        [HttpPost("refresh")]
-        public async Task<IActionResult> Refresh([FromBody] RefreshTokenCommand command)
-        {
-            var result = await _mediator.Send(command);
-            return NewResult(result);
-        }
+        //[HttpPost("refresh")]
+        //public async Task<IActionResult> Refresh([FromBody] RefreshTokenCommand command)
+        //{
+        //    await _authorizationService.AuthorizeAsync(User, book, requirement);
+        //    var result = await _mediator.Send(command);
+        //    return NewResult(result);
+        //}
 
     }
 }

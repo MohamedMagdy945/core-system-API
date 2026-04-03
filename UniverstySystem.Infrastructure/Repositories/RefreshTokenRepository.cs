@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using UniversitySystem.Application.Common.Wrappers;
-using UniversitySystem.Application.Interfaces;
-using UniversitySystem.Domain.Identity;
+using UniversitySystem.Application.Interfaces.Auth;
+using UniversitySystem.Domain.Entities.Identity;
 using UniverstySystem.Infrastructure.Persistence;
 
 namespace UniverstySystem.Infrastructure.Repositories

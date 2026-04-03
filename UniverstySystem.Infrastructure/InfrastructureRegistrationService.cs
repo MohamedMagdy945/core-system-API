@@ -1,11 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using UniversitySystem.Application.Interfaces;
+using UniversitySystem.Application.Interfaces.Auth;
+using UniversitySystem.Application.Interfaces.Identity;
+using UniverstySystem.Infrastructure.Identity.Handler;
+using UniverstySystem.Infrastructure.Identity.Provider;
 using UniverstySystem.Infrastructure.Persistence;
 using UniverstySystem.Infrastructure.Repositories;
-using UniverstySystem.Infrastructure.Service;
-using UniverstySystem.Infrastructure.Services;
+using UniverstySystem.Infrastructure.Services.Auth;
+using UniverstySystem.Infrastructure.Services.Identity;
 
 namespace UniverstySystem.Infrastructure
 {
@@ -26,6 +31,11 @@ namespace UniverstySystem.Infrastructure
             services.AddScoped<IRoleService, RoleService>();
 
             services.AddScoped<IAuthService, AuthService>();
+
+            services.AddSingleton<IAuthorizationHandler, PermissionHandler>();
+
+            services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>();
+
 
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 
