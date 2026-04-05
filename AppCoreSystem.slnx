@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="AppCoreSystem.API/AppCoreSystem.API.csproj" />
+  <Project Path="AppCoreSystem.Application/AppCoreSystem.Application.csproj" />
+  <Project Path="AppCoreSystem.Domain/AppCoreSystem.Domain.csproj" />
+  <Project Path="AppCoreSystem.Infrastructure/AppCoreSystem.Infrastructure.csproj" />
+</Solution>
