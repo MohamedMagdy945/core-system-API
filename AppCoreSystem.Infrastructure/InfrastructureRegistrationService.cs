@@ -1,6 +1,7 @@
 ﻿using AppCoreSystem.Application.Interfaces;
 using AppCoreSystem.Application.Interfaces.Auth;
 using AppCoreSystem.Application.Interfaces.Identity;
+using AppCoreSystem.Infrastructure.Services.Auth;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

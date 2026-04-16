@@ -3,7 +3,7 @@ using AppCoreSystem.Application.Common.Models;
 using AppCoreSystem.Application.Interfaces.Auth;
 using AppCoreSystem.Application.Interfaces.Identity;
 using AppCoreSystem.Domain.Entities.Identity;
-namespace UniverstySystem.Infrastructure.Services.Auth
+namespace AppCoreSystem.Infrastructure.Services.Auth
 {
     public class AuthService : IAuthService
     {
