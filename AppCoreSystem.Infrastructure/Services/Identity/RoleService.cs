@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using AppCoreSystem.Application.Common.Interfaces.Identity;
+using AppCoreSystem.Application.Interfaces.Identity;
 
 namespace UniverstySystem.Infrastructure.Services.Identity
 {

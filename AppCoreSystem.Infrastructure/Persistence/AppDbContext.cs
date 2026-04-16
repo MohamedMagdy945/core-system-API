@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using AppCoreSystem.Application.Common.Interfaces;
 using AppCoreSystem.Domain.Entities.Business;
 using AppCoreSystem.Domain.Entities.Identity;
+using AppCoreSystem.Application.Interfaces;
 
 namespace UniverstySystem.Infrastructure.Persistence
 {

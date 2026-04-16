@@ -4,9 +4,9 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using AppCoreSystem.Application.Common.Bases;
 using AppCoreSystem.Application.Common.Extensions;
-using AppCoreSystem.Application.Common.Interfaces;
 using AppCoreSystem.Application.Common.Wrappers;
 using AppCoreSystem.Application.Features.Business.Students.Models;
+using AppCoreSystem.Application.Interfaces;
 
 namespace AppCoreSystem.Application.Features.Business.Students.Queries.GetStudentListPaginated
 {

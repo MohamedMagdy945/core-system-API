@@ -2,7 +2,7 @@
 using AppCoreSystem.Application.Common.Wrappers;
 using AppCoreSystem.Application.Features.Identity.Permissions.Models;
 
-namespace AppCoreSystem.Application.Common.Interfaces.Learning
+namespace AppCoreSystem.Application.Interfaces.Learning
 {
     public interface IRolePermissionService
     {

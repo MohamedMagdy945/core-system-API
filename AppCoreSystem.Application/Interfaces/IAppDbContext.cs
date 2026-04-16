@@ -2,7 +2,7 @@
 using AppCoreSystem.Domain.Entities.Business;
 using AppCoreSystem.Domain.Entities.Identity;
 
-namespace AppCoreSystem.Application.Common.Interfaces
+namespace AppCoreSystem.Application.Interfaces
 {
     public interface IAppDbContext
     {

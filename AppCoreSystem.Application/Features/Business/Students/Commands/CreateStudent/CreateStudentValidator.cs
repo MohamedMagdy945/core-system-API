@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using AppCoreSystem.Application.Common.Interfaces;
+using AppCoreSystem.Application.Interfaces;
 
 namespace AppCoreSystem.Application.Features.Business.Students.Commands.CreateStudent
 {

@@ -1,5 +1,5 @@
-﻿using AppCoreSystem.Application.Common.Interfaces.Auth;
-using AppCoreSystem.Application.Common.Models;
+﻿using AppCoreSystem.Application.Common.Models;
+using AppCoreSystem.Application.Interfaces.Auth;
 using AppCoreSystem.Domain.Entities.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;

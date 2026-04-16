@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using AppCoreSystem.Application.Common.Bases;
 using AppCoreSystem.Application.Common.Exceptions;
-using AppCoreSystem.Application.Common.Interfaces;
 using AppCoreSystem.Domain.Entities.Business;
+using AppCoreSystem.Application.Interfaces;
 
 namespace AppCoreSystem.Application.Features.Business.Students.Commands.CreateStudent
 {

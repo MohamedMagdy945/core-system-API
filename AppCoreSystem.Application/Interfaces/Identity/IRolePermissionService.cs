@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace AppCoreSystem.Application.Common.Interfaces.Identity
+namespace AppCoreSystem.Application.Interfaces.Identity
 {
     public interface IRolePermissionService
     {

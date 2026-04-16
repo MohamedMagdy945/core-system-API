@@ -1,8 +1,7 @@
 ﻿using AppCoreSystem.Application.Common.Bases;
-using AppCoreSystem.Application.Common.Interfaces.Auth;
-using AppCoreSystem.Application.Common.Interfaces.Identity;
 using AppCoreSystem.Application.Common.Models;
 using AppCoreSystem.Application.Interfaces.Auth;
+using AppCoreSystem.Application.Interfaces.Identity;
 using AppCoreSystem.Domain.Entities.Identity;
 namespace UniverstySystem.Infrastructure.Services.Auth
 {

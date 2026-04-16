@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using AppCoreSystem.Domain.Entities.Identity;
 
-namespace AppCoreSystem.Application.Common.Interfaces.Identity
+namespace AppCoreSystem.Application.Interfaces.Identity
 {
     public interface IUserService
     {

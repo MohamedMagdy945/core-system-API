@@ -4,8 +4,8 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using AppCoreSystem.Application.Common.Bases;
 using AppCoreSystem.Application.Common.Exceptions;
-using AppCoreSystem.Application.Common.Interfaces;
 using AppCoreSystem.Application.Features.Business.Students.Models;
+using AppCoreSystem.Application.Interfaces;
 
 namespace AppCoreSystem.Application.Features.Business.Students.Queries.GetStudentById
 {

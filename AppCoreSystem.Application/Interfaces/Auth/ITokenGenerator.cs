@@ -1,7 +1,7 @@
 ﻿using AppCoreSystem.Application.Common.Models;
 using AppCoreSystem.Domain.Entities.Identity;
 
-namespace AppCoreSystem.Application.Common.Interfaces.Auth
+namespace AppCoreSystem.Application.Interfaces.Auth
 {
     public interface ITokenGenerator
     {

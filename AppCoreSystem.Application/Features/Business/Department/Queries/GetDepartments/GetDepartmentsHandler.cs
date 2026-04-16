@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using AppCoreSystem.Application.Common.Interfaces;
+using AppCoreSystem.Application.Interfaces;
 
 namespace AppCoreSystem.Application.Features.Business.Department.Queries.GetDepartments
 {
